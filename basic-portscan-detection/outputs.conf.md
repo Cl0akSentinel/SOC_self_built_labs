@@ -3,7 +3,7 @@
 File `outputs.conf` xác định nơi Splunk Universal Forwarder gửi dữ liệu (Splunk indexer / host nhận).  
 Trong ví dụ dưới, Splunk forwarder gửi đến `<host_ip>:9997` (mặc định port nhận logs là 9997).
 
-## Nội dung mẫu `outputs.conf`
+## Nội dung file `outputs.conf`
 
 ```ini
 [tcpout]
