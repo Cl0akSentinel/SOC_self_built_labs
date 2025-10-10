@@ -12,6 +12,6 @@ Mô hình gồm ba thành phần chính:
   Máy chủ chạy **Splunk Enterprise** (Indexer/Search Head), tiếp nhận và phân tích log từ Victim, từ đó tạo **detection rules**.
 
 ## Lưu ý
-Bài lab này khó có thể làm nổi bật hết được những dấu hiệu của hành vi port scanning, tuy nhiên người thực hiện bài lab cũng cố gắng liệt kê một số dấu hiệu nổi bật.
+Bài lab này khó có thể làm nổi bật hết được những dấu hiệu của hành vi port scanning, tuy nhiên một số dấu hiệu phổ biến đã được bao gồm trong này.
 
 Bài lab trên được thực hiện trong môi trường được kiểm soát, không nên dùng port scanning trong môi trường thực tế để thực hiện hành vi bất hợp pháp.
