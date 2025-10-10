@@ -32,17 +32,6 @@ index = main
 sourcetype = windows:firewall
 followTail = 1
 crcSalt = <SOURCE>
-
-; ----------------------------
-; 3) (Optional) Firewall Event Channel - disabled by default (enable nếu cần)
-; Nếu muốn event-level firewall logs, chuyển disabled = 1 -> 0
-; ----------------------------
-[WinEventLog://Microsoft-Windows-Windows Firewall With Advanced Security/Firewall]
-disabled = 1
-index = main
-sourcetype = XmlWinEventLog:Microsoft-Windows-Windows Firewall With Advanced Security/Firewall
-checkpointInterval = 5
-renderXml = false
 ```
 
 ## Giải thích nhanh các lựa chọn
