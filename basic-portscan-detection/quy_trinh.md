@@ -6,8 +6,10 @@ Trong vm window server, ta dùng lệnh `splunk start` để khởi động Splu
 
 Giờ chúng ta cần cấu hình file inputs.conf để quyết định loại logs nào sẽ được gửi đi. Trong bài lab này, ta sẽ dùng firewall log và Sysmon event log.
 
-Firewall cho bạn network-level (src_ip → dst_port, action allow/drop, packet info).
+Firewall cho ta network-level (src_ip → dst_port, action allow/drop, packet info).
 
-Sysmon cho bạn host-level (Process Create — EventID 1; Network Connection — EventID 3; file/registry persistence, hashes...) → giúp xác định process nào thực hiện các kết nối hoặc scan.
+Sysmon cho ta host-level (Process Create — EventID 1; Network Connection — EventID 3; file/registry persistence, hashes...) → giúp xác định process nào thực hiện các kết nối hoặc scan.
 
 Kết hợp cả hai cho phép correlate: ví dụ: nhiều dst_port từ 1 src_ip (firewall) + cùng thời điểm một tiến trình lạ tạo nhiều kết nối (Sysmon) → xác thực port scan.
+
+
