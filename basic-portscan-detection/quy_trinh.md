@@ -19,7 +19,8 @@ Active forwards:
 Configured but inactive forwards:
         None
 ```
-### Cấu hình hai file inputs.conf và outputs.conf
+
+### Cấu hình hai file `inputs.conf` và `outputs.conf` nhằm xác định log types cần gửi và receivers
 
 ### Ý nghĩa của hai loại log trong bài lab
 
