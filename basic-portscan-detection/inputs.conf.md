@@ -7,13 +7,12 @@ Cụ thể: thu EventID=3 của Sysmon (network connect) và log firewall (pfire
 ## Nội dung file `inputs.conf`
 
 ```ini
-; Minimal inputs.conf optimized for low-volume port-scan detection
 ; Collect Sysmon Operational (network connects) + Windows Firewall dropped log
 
 ; ----------------------------
 ; 1) Sysmon Operational channel
 ; Sysmon cung cấp EventCode=3 (NetworkConnect) — process-level network events
-; Note: Tinh chỉnh sysmonconfig.xml để chỉ ghi EventID=3 (và optional EventID=1)
+; Chú ý: Tinh chỉnh sysmonconfig.xml để chỉ ghi EventID=3 (và optional EventID=1)
 ; ----------------------------
 [WinEventLog://Microsoft-Windows-Sysmon/Operational]
 disabled = 0
@@ -36,7 +35,7 @@ crcSalt = <SOURCE>
 
 ; ----------------------------
 ; 3) (Optional) Firewall Event Channel - disabled by default (enable nếu cần)
-; Nếu bạn muốn event-level firewall logs, chuyển disabled = 1 -> 0
+; Nếu muốn event-level firewall logs, chuyển disabled = 1 -> 0
 ; ----------------------------
 [WinEventLog://Microsoft-Windows-Windows Firewall With Advanced Security/Firewall]
 disabled = 1
