@@ -5,7 +5,7 @@ Cụ thể: thu EventID=3 của Sysmon (network connect) và log firewall (pfire
 
 Đối với firewall logs, ta cần thực hiện:
 
-Properties của Window Defender Firewall with Advanced Security -> Properties -> Private Profile (tối thiểu) -> Customize (Logging) -> Quyết định địa chỉ lưu file log và loại log
+Properties của Window Defender Firewall with Advanced Security -> Properties -> Private Profile (tối thiểu) -> Customize (Logging) -> Quyết định địa chỉ lưu file log và loại log.
 
   <img width="494" height="462" alt="image" src="https://github.com/user-attachments/assets/61c04370-c3d8-4aa7-a1c9-f737035ca8ef" />
 
@@ -20,11 +20,6 @@ sourcetype = XmlWinEventLog:Microsoft-Windows-Sysmon/Operational
 checkpointInterval = 5
 renderXml = false
 
-; ----------------------------
-; 2) Windows Firewall text logfile
-; Chỉ bật “Log dropped packets” trong Windows Firewall
-; followTail=1: chỉ gửi dòng mới (tránh gửi toàn bộ file khi restart)
-; ----------------------------
 [monitor://C:\Windows\System32\logs_for_SOC_lab\pfirewall.log]
 disabled = 0
 index = main
