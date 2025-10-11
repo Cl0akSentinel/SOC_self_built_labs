@@ -48,7 +48,41 @@ Trước tiên dùng lệnh
 
 <img width="1919" height="776" alt="image" src="https://github.com/user-attachments/assets/eb84aad6-a87f-44d6-a410-bd3e62e6e63f" />
 
+## Fast SYN
+
+“SYN” là gói TCP Synchronize, bước đầu tiên trong quá trình bắt tay 3 bước (three-way handshake) để thiết lập kết nối TCP.
+
+Khi thấy rất nhiều gói SYN được gửi nhanh tới nhiều cổng hoặc nhiều host, nhưng không hoàn thành 3-way handshake (không có hoặc ít gói ACK/FIN trả về), điều đó gợi ý một SYN scan (half-open scan).
+
+Đây là kiểu scan mà kẻ tấn công gửi gói SYN để dò cổng mở, nhưng không hoàn tất kết nối, giúp tránh bị log hoặc phát hiện dễ dàng.
+
+**Demo:**
+
+Phía attacker(ubuntu): 
+
+`nmap -sS -p- -T4 --min-rate 1000 <target-or-target-range>`
+
+-sS = SYN scan (half-open). -p- = quét tất cả cổng 0–65535. -T4 = timing faster. --min-rate 1000 buộc gửi tối thiểu 1000 packets/giây → tạo lượng lớn SYN packets nhanh, đúng loại traffic “fast SYN”.
 
 
+## Host Sweep
 
+“Host sweep” là hành vi gửi các gói probe (ICMP/TCP/UDP) đến một dải địa chỉ IP để xác định host alive trước khi quét sâu hơn từng host.
+
+Thường dùng ICMP Echo Request (ping) hoặc TCP SYN đến một cổng phổ biến (như 80, 443, 22,...). Gói trả về thường là ICMP Echo Reply hoặc TCP RST/ACK.
+
+**Đặc trưng:**
+
+
+---
+
+## Many Dropped Packets
+
+Nhiều gói bị firewall/IDS drop, hậu quả của rate-limiting, rule deny, hoặc overload (queue/conntrack exhaustion).
+
+Đây không hẳn là hành vi tấn công, mà là hậu quả gián tiếp của việc bị scan quá nhanh.
+
+Tuy nhiên, khi ghép với Fast SYN và Host Sweep, nó củng cố nghi ngờ port scan.
+
+**Đặc trưng:**
 
