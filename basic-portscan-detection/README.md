@@ -12,6 +12,7 @@ Mô hình gồm ba thành phần chính:
   Máy chủ chạy **Splunk Enterprise** (Indexer/Search Head), tiếp nhận và phân tích log từ Victim, từ đó tạo **detection rules**.
 
 ## Lưu ý
-Bài lab này khó có thể làm nổi bật hết được những dấu hiệu của hành vi port scanning, tuy nhiên một số dấu hiệu phổ biến đã được bao gồm trong này.
+Bài lab này trình bày ba dấu hiệu được xem là điển hình khi phát hiện hoạt động port scan hoặc reconnaissance (do thám mạng), bao gồm:
+Fast SYN, Host Sweep, Many Dropped Packets.
 
 Bài lab trên được thực hiện trong môi trường được kiểm soát, không nên dùng port scanning trong môi trường thực tế để thực hiện hành vi bất hợp pháp.
