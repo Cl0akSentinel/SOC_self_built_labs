@@ -64,4 +64,16 @@ Phía attacker(ubuntu):
 
 -sS = SYN scan (half-open). -p- = quét tất cả cổng 0–65535. -T4 = timing faster. --min-rate 1000 buộc gửi tối thiểu 1000 packets/giây → tạo lượng lớn SYN packets nhanh, đúng loại traffic “fast SYN”.
 
+Ta thử nghiệm SPL để từ đó xây dựng detection rules:
+
+<img width="1918" height="850" alt="image" src="https://github.com/user-attachments/assets/5d9b3c15-ee9a-4aef-ad56-9818ac09a1bf" />
+
+Ảnh cho thấy SPL thành công bắt được source IP của máy thực hiện nmap
+
+IP attacker gửi probes: 22, 80, 443, 8080 → ports_tried = 4.
+
+Tổng probes (mỗi port có thể bị probe nhiều lần): 22 lần → attempts = 22.
+
+
+
 
