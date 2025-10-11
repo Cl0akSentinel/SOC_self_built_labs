@@ -3,17 +3,16 @@
 File `outputs.conf` ghi ra các nguồn log cần thiết rồi gửi vào Splunk để phát hiện port scan.
 Cụ thể: thu EventID=3 của Sysmon (network connect) và log firewall (pfirewall.log).
 
+Đối với firewall logs, ta cần thực hiện:
+
+Properties của Window Defender Firewall with Advanced Security -> Properties -> Private Profile (tối thiểu) -> Customize (Logging) -> Quyết định địa chỉ lưu file log và loại log
+
+  <img width="494" height="462" alt="image" src="https://github.com/user-attachments/assets/61c04370-c3d8-4aa7-a1c9-f737035ca8ef" />
+
 
 ## Nội dung file `inputs.conf`
 
 ```ini
-; Collect Sysmon Operational (network connects) + Windows Firewall dropped log
-
-; ----------------------------
-; 1) Sysmon Operational channel
-; Sysmon cung cấp EventCode=3 (NetworkConnect) — process-level network events
-; Chú ý: Tinh chỉnh sysmonconfig.xml để chỉ ghi EventID=3 (và optional EventID=1)
-; ----------------------------
 [WinEventLog://Microsoft-Windows-Sysmon/Operational]
 disabled = 0
 index = main
@@ -22,14 +21,14 @@ checkpointInterval = 5
 renderXml = false
 
 ; ----------------------------
-; 2) Windows Firewall text logfile (pfirewall.log)
-; Chỉ bật "Log dropped packets" trong Firewall GUI để giảm noise.
-; followTail=1: stream dòng mới (không gửi toàn bộ file mỗi lần restart)
+; 2) Windows Firewall text logfile
+; Chỉ bật “Log dropped packets” trong Windows Firewall
+; followTail=1: chỉ gửi dòng mới (tránh gửi toàn bộ file khi restart)
 ; ----------------------------
-[monitor://C:\Windows\System32\LogFiles\Firewall\pfirewall.log]
+[monitor://C:\Windows\System32\logs_for_SOC_lab\pfirewall.log]
 disabled = 0
 index = main
-sourcetype = windows:firewall
+sourcetype = windows:firewall:lab
 followTail = 1
 crcSalt = <SOURCE>
 ```
