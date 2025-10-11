@@ -65,24 +65,3 @@ Phía attacker(ubuntu):
 -sS = SYN scan (half-open). -p- = quét tất cả cổng 0–65535. -T4 = timing faster. --min-rate 1000 buộc gửi tối thiểu 1000 packets/giây → tạo lượng lớn SYN packets nhanh, đúng loại traffic “fast SYN”.
 
 
-## Host Sweep
-
-“Host sweep” là hành vi gửi các gói probe (ICMP/TCP/UDP) đến một dải địa chỉ IP để xác định host alive trước khi quét sâu hơn từng host.
-
-Thường dùng ICMP Echo Request (ping) hoặc TCP SYN đến một cổng phổ biến (như 80, 443, 22,...). Gói trả về thường là ICMP Echo Reply hoặc TCP RST/ACK.
-
-**Đặc trưng:**
-
-
----
-
-## Many Dropped Packets
-
-Nhiều gói bị firewall/IDS drop, hậu quả của rate-limiting, rule deny, hoặc overload (queue/conntrack exhaustion).
-
-Đây không hẳn là hành vi tấn công, mà là hậu quả gián tiếp của việc bị scan quá nhanh.
-
-Tuy nhiên, khi ghép với Fast SYN và Host Sweep, nó củng cố nghi ngờ port scan.
-
-**Đặc trưng:**
-
