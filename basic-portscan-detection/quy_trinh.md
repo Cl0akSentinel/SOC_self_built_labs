@@ -68,11 +68,8 @@ Ta thử nghiệm SPL để từ đó xây dựng detection rules:
 
 <img width="1918" height="850" alt="image" src="https://github.com/user-attachments/assets/5d9b3c15-ee9a-4aef-ad56-9818ac09a1bf" />
 
-Ảnh cho thấy SPL thành công bắt được source IP của máy thực hiện nmap
+Ảnh cho thấy SPL thành công bắt được source IP của máy thực hiện nmap khi phát hiện src IP cố gắng kết nối đến 9 cổng khác nhau của victim và tổng 170 lần kết nối được ghi nhận đến các cổng đó. Trung bình mỗi cổng bị thử khoảng 170 / 9 (lần) -> Rất cao!
 
-IP attacker gửi probes: 22, 80, 443, 8080 → ports_tried = 4.
-
-Tổng probes (mỗi port có thể bị probe nhiều lần): 22 lần → attempts = 22.
 
 
 
