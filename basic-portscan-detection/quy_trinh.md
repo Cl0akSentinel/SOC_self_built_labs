@@ -58,15 +58,15 @@ Khi thấy rất nhiều gói SYN được gửi nhanh tới nhiều cổng ho�
 
 **Demo:**
 
-Phía attacker(ubuntu): 
+Phía attacker: 
 
-`nmap -sS -p- -T4 --min-rate 1000 <target-or-target-range>`
+`nmap -sS -p- -T4 --min-rate 1000 <target_IP>`
 
 -sS = SYN scan (half-open). -p- = quét tất cả cổng 0–65535. -T4 = timing faster. --min-rate 1000 buộc gửi tối thiểu 1000 packets/giây → tạo lượng lớn SYN packets nhanh, đúng loại traffic “fast SYN”.
 
 Ta thử nghiệm SPL để từ đó xây dựng detection rules:
 
-<img width="1918" height="850" alt="image" src="https://github.com/user-attachments/assets/5d9b3c15-ee9a-4aef-ad56-9818ac09a1bf" />
+<img width="1651" height="821" alt="image" src="https://github.com/user-attachments/assets/b98382f1-c8bc-423f-905a-7ab32471b748" />
 
 Ảnh cho thấy SPL thành công bắt được source IP của máy thực hiện nmap khi phát hiện src IP cố gắng kết nối đến 9 cổng khác nhau của victim và tổng 170 lần kết nối được ghi nhận đến các cổng đó. Trung bình mỗi cổng bị thử khoảng 170 / 9 (lần) -> Rất cao!
 
