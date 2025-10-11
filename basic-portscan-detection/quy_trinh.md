@@ -38,3 +38,13 @@ Giúp nhận diện tần suất quét, phạm vi port và nguồn thực hiện
 
 Sự kết hợp này giúp phát hiện và xác thực hành vi **port scanning** từ cả hai phía — *tiến trình thực hiện* và *mạng bị tác động*.
 
+### Thực hiện port scanning
+
+Trước tiên dùng lệnh
+
+`index=* host="<victim_hostname>" 
+| stats count by index, sourcetype, source`
+để đảm bảo splunk host đã nhận đủ và đúng log types
+
+<img width="1919" height="776" alt="image" src="https://github.com/user-attachments/assets/eb84aad6-a87f-44d6-a410-bd3e62e6e63f" />
+
