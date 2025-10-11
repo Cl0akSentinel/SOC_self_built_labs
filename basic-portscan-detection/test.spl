@@ -1,0 +1,7 @@
+(index=main sourcetype="windows:firewall:lab") OR (index=main sourcetype="XmlWinEventLog:Microsoft-Windows-Sysmon/Operational" EventCode=3)
+| rex "(?i)(?<ip>\d{1,3}(?:\.\d{1,3}){3}).*?(?<port>\d{1,5})" max_match=0
+| eval src=coalesce(SourceIp, src_ip, ip), dport=coalesce(DestinationPort, dest_port, port)
+| where isnotnull(src) AND isnotnull(dport)
+| stats dc(dport) AS ports_tried count AS attempts values(sourcetype) AS seen_in by src
+| where ports_tried>5
+| table src ports_tried attempts seen_in
