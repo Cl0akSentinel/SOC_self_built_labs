@@ -62,7 +62,7 @@ Phía attacker:
 
 `nmap -sS -p- -T4 --min-rate 1000 <target_IP>`
 
--sS = SYN scan (half-open). -p- = quét tất cả cổng 0–65535. -T4 = timing faster. --min-rate 1000 buộc gửi tối thiểu 1000 packets/giây → tạo lượng lớn SYN packets nhanh, đúng loại traffic “fast SYN”.
+-sS = SYN scan (half-open). -p- = quét tất cả cổng 0–65535. -T4 = timing faster. --min-rate 1000 buộc gửi tối thiểu 1000 packets/giây → tạo lượng lớn SYN packets nhanh.
 
 Ta thử nghiệm SPL để từ đó xây dựng detection rules:
 
